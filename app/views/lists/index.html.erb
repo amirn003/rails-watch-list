@@ -1,12 +1,14 @@
 <h1>Index</h1>
 
+
+<%= link_to "New list", new_list_path %>
+
 <ul>
-<% @lists.each do |list| %>
-
-<li>
-  <%= list.name.capitalize %>
-  <%= link_to "More info", list_path(list) %>
-</li>
-
-<% end %>
+  <% @lists.each do |list| %>
+    <li>
+      <%= list.name.capitalize %>
+      <%= link_to "More info", list_path(list) %>
+      <%= link_to "New bookmark", new_list_bookmark_path(list) %>
+    </li>
+  <% end %>
 </ul>

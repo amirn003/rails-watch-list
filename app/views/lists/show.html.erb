@@ -1,11 +1,23 @@
-<h1>Show</h1>
+<h1><%= @list.name.capitalize %> list</h1>
+<%= link_to "New bookmark", new_list_bookmark_path(@list) %> |
+<%= link_to "Back to home", lists_path %>
 
-<p><%= @list.name.capitalize %>
 
-<% @list.movies.each_with_index do |movie, index| %>
-  <li>
-    <%= movie.title %>
-    <%= link_to 'Destroy', bookmark_path(id: @list.bookmarks.ids[index]), method: :delete, data: { confirm: 'Are you sure?' } %>
-  </li>
-<% end %>
-</p>
+
+
+<div class="container">
+  <% @list.movies.each_with_index do |movie, index| %>
+    <div>
+      <h3> <%= movie.title %> <%= link_to 'Delete', bookmark_path(@list.bookmarks.ids.reverse[index]), method: :delete, data: { confirm: 'Are you sure?' } %> </h3>
+      <p><%= movie.overview %> (<%= movie.rating %>)</p>
+
+      <%= image_tag movie.poster_url, alt: movie.title, width: 200 %>
+
+
+      <p><%= movie.bookmarks[0].comment %></p>
+
+
+
+    </div>
+  <% end %>
+</div>
