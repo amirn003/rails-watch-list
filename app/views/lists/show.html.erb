@@ -1,4 +1,8 @@
 <h1>Show</h1>
 
 <p><%= @list.name.capitalize %>
+
+<% @list.movies.each do |movie| %>
+  <li><%= movie.title %></li>
+<% end %>
 </p>
