@@ -2,7 +2,10 @@
 
 <p><%= @list.name.capitalize %>
 
-<% @list.movies.each do |movie| %>
-  <li><%= movie.title %></li>
+<% @list.movies.each_with_index do |movie, index| %>
+  <li>
+    <%= movie.title %>
+    <%= link_to 'Destroy', bookmark_path(id: @list.bookmarks.ids[index]), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
 <% end %>
 </p>
