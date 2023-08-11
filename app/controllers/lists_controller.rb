@@ -1,4 +1,6 @@
 class ListsController < ActionController::Base
+  layout 'application'
+
   before_action :find_list, only: [:show]
 
   def index

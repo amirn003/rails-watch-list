@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-light">
+  <div class="container-fluid">
+    <div class="l-flex">
+      <%= link_to "My lists", lists_path, class: "navbar-brand" %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="d-flex">
+      <%= link_to "New List", new_list_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2" %>
+    </div>
+  </div>
+</nav>

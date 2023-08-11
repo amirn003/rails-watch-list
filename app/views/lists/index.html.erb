@@ -1,14 +1,14 @@
-<h1>Index</h1>
+<%= image_tag "cinema.jpeg", alt: "cinema", width: '100%', height: 550%>
+<div class="container">
+  <h1>Index</h1>
+  <ul>
+    <% @lists.each do |list| %>
+      <li>
+        <%= list.name.capitalize %>
+        <%= link_to "More info", list_path(list) %>
+        <%= link_to "New bookmark", new_list_bookmark_path(list) %>
+      </li>
+    <% end %>
+  </ul>
 
-
-<%= link_to "New list", new_list_path %>
-
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <%= list.name.capitalize %>
-      <%= link_to "More info", list_path(list) %>
-      <%= link_to "New bookmark", new_list_bookmark_path(list) %>
-    </li>
-  <% end %>
-</ul>
+</div>
