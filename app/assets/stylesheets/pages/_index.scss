@@ -1,2 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  div {
+    margin: 10px;
+  }
+}
