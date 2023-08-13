@@ -1,23 +1,26 @@
-<h1><%= @list.name.capitalize %> list</h1>
-<%= link_to "New bookmark", new_list_bookmark_path(@list) %> |
-<%= link_to "Back to home", lists_path %>
-
-
-
-
 <div class="container">
-  <% @list.movies.each_with_index do |movie, index| %>
-    <div>
-      <h3> <%= movie.title %> <%= link_to 'Delete', bookmark_path(@list.bookmarks.ids.reverse[index]), method: :delete, data: { confirm: 'Are you sure?' } %> </h3>
-      <p><%= movie.overview %> (<%= movie.rating %>)</p>
 
-      <%= image_tag movie.poster_url, alt: movie.title, width: 200 %>
+  <div class="show-margin">
+    <h1><%= @list.name.capitalize %> list</h1>
+    <%= link_to "New bookmark", new_list_bookmark_path(@list) %> |
+    <%= link_to "Back to home", lists_path %>
 
-
-      <p><%= movie.bookmarks[0].comment %></p>
-
+    <%# <div class="flex-container"> %>
+    <% @list.movies.each_with_index do |movie, index| %>
 
 
-    </div>
-  <% end %>
+        <h3> <%= movie.title %></h3>
+        <%= link_to 'Delete', bookmark_path(@list.bookmarks.ids.reverse[index]), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <p><%= movie.overview %> (<%= movie.rating %>)</p>
+
+        <%= image_tag movie.poster_url, alt: movie.title, width: 200 %>
+
+        <p><%= movie.bookmarks[0].comment %></p>
+
+    <% end %>
+
+    <%# </div> %>
+
+  </div>
+
 </div>
