@@ -14,7 +14,7 @@
         <div class="card-movie-infos">
           <div>
             <h2><%= movie.title %></h2>
-            <%= link_to 'Delete', bookmark_path(@list.bookmarks.ids.reverse[index]), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', bookmark_path(@list.movies[index].bookmarks.ids), method: :delete, data: { confirm: 'Are you sure?' } %>
             <p><%= movie.overview %> (<%= movie.rating %>)</p>
             <h3>Comments:</h3>
             <p class="box-comment"><%= movie.bookmarks[0].comment %></p>
