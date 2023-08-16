@@ -1,1 +1,19 @@
 // Specific CSS for your home-page
+
+.container-pad {
+  padding: 75px 0;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  div {
+    margin: 10px;
+  }
+}
+
+.btn-white {
+  color: white;
+}
