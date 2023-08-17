@@ -1,6 +1,6 @@
 <div class="banner">
-  <%# <%= image_tag "cinema.jpeg", alt: "cinema", width: '100%', height: '550px' %>
-  <%= cl_image_tag "xl7shvm0wtlfnjgfw1cr", alt: "San Francisco", width: '100%', height: 550 %>
+  <%= image_tag "cinema.jpeg", alt: "cinema", width: '100%', height: '550px' %>
+  <%# <%= cl_image_tag "xl7shvm0wtlfnjgfw1cr", alt: "San Francisco", width: '100%', height: 550 %>
   <%# <%= cl_image_tag("xl7shvm0wtlfnjgfw1cr", height: 550, crop: :fill) %>
   <div class="centered"><p><span data-controller="typed-js"></span></p></div>
 </div>
@@ -14,7 +14,13 @@
         <div class="flex-container">
           <% @lists.each do |list| %>
 
-          <div class="card-category">
+          <%# <% if list.photo.key == nil %>
+          <% if !list.photo.attached? %>
+            <div class="card-category" style="background-image: url('<%= image_path("lists.jpeg", width: 225, height: 225) %>');">
+          <% else %>
+            <div class="card-category" style="background-image: url('<%= cl_image_path(list.photo.key, width: 225, height: 225) %>');">
+          <% end %>
+
             <%= link_to list.name.capitalize, list_path(list) %>
             <div class="new-bookmark">
               <%= link_to "New bookmark", new_list_bookmark_path(list) %>

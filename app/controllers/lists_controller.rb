@@ -26,7 +26,7 @@ class ListsController < ActionController::Base
 
   private
   def params_set
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 
   def find_list
