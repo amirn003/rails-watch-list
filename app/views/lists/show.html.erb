@@ -1,5 +1,7 @@
 <div class="text-center">
-  <%= cl_image_tag @list.photo.key, alt: @list.name, width: 700, crop: :fill, class: "img-fluid" %>
+  <% if @list.photo.attached? %>
+    <%= cl_image_tag @list.photo.key, alt: @list.name, width: 700, crop: :fill, class: "img-fluid" %>
+  <% end %>
 </div>
 
 <div class="container">
